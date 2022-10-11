@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title= t('pages.global_title')
+    meta content="width=device-width,initial-scale=1" name="viewport"
+    meta charset="utf-8"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
+      .container-fluid
+        = link_to t('nav_menu.home'), '#', class: 'navbar-brand'
+        button.navbar-toggler aria-controls="navbarCollapse" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarCollapse" data-bs-toggle="collapse" type="button"
+          span.navbar-toggler-icon
+        #navbarCollapse.collapse.navbar-collapse
+          ul.navbar-nav.me-auto.mb-2.mb-md-0
+            li.nav-item
+              a.nav-link.active aria-current="page" href="#"  Home
+            li.nav-item
+              a.nav-link href="#"  Admin
+    = yield
