@@ -32,6 +32,12 @@
 en:
   nav_menu:
     home: 'Home'
+    admin: 'Admin'
+    projects: 'My projects'
   pages:
     global_title: 'Happy Team'
+    root:
+      title: Welcome to Team Happy portal!
+      description: Let's get started
+      next_button_label: 'Explore your day'
 

@@ -17,7 +17,8 @@ html
         #navbarCollapse.collapse.navbar-collapse
           ul.navbar-nav.me-auto.mb-2.mb-md-0
             li.nav-item
-              a.nav-link.active aria-current="page" href="#"  Home
+              = link_to t('nav_menu.admin'), '#', class: 'nav-link'
             li.nav-item
-              a.nav-link href="#"  Admin
-    = yield
+              = link_to t('nav_menu.projects'), '#', class: 'nav-link'
+    main.container
+      = yield
