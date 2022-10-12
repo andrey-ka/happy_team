@@ -21,4 +21,7 @@ html
             li.nav-item
               = link_to t('nav_menu.projects'), '#', class: 'nav-link'
     main.container
+      - flash.each do |message_kind, value|
+        div [class=flash_class(message_kind)]
+          = value
       = yield
