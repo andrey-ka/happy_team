@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+Simple 'Happy Team' project management tool (yet another :smile:)
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+### System dependencies
+- PG (13+ version) is up and running (see .env.example config for `PORT`)
+- PG user with `SUPERUSER` role is created (see .env.example config for `DATABASE_USER`)
 
-* System dependencies
 
-* Configuration
+### Prerequisites
+- Ruby version - `3.1.2`
+- Nodejs version - `14.17.6`
 
-* Database creation
+### Installation
+- `gem install bundler`
+- `bin/setup` - installs gems, copies config files, prepares db
+- `rails db:seeds` - populates db with the initial data
 
-* Database initialization
+## Running
+- `bin/dev` - runs foreman dev profile
+- `rspec` - run tests.
+- `rubocop` - style checking; use `-a` flag to auto correct
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Deployment
+TBC

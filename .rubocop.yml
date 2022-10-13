@@ -1,0 +1,61 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: disable
+  TargetRubyVersion: 3.1.2
+
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'db/seeds.rb'
+    - 'lib/tasks/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'test/**/*'
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Lint/MissingSuper:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*'
+  AllowedMethods:
+    - 'context'
+    - 'describe'
+Metrics/ClassLength:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 15
+
+Rails:
+  Enabled: true
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+Rails/InverseOf:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Lambda:
+  EnforcedStyle: literal
+Style/MixinGrouping:
+  EnforcedStyle: separated

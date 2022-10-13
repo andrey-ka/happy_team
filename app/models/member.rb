@@ -5,4 +5,9 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: { user: 0, admin: 1 }
+
+  validates :email,
+            email_format: true,
+            uniqueness: true,
+            presence: true
 end
