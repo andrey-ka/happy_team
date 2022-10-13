@@ -9,17 +9,7 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   body
-    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
-      .container-fluid
-        = link_to t('nav_menu.home'), '#', class: 'navbar-brand'
-        button.navbar-toggler aria-controls="navbarCollapse" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarCollapse" data-bs-toggle="collapse" type="button"
-          span.navbar-toggler-icon
-        #navbarCollapse.collapse.navbar-collapse
-          ul.navbar-nav.me-auto.mb-2.mb-md-0
-            li.nav-item
-              = link_to t('nav_menu.admin'), '#', class: 'nav-link'
-            li.nav-item
-              = link_to t('nav_menu.projects'), '#', class: 'nav-link'
+    = render 'layouts/components/navigation'
     main.container
       - flash.each do |message_kind, value|
         div [class=flash_class(message_kind)]

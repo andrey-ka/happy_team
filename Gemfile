@@ -16,6 +16,7 @@ gem 'jbuilder'
 gem 'bootsnap', require: false
 
 # Additional
+gem 'activerecord-session_store'
 gem 'devise'
 gem 'slim-rails'
 gem 'pagy'

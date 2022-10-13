@@ -1,8 +1,8 @@
 module ApplicationHelper
   BOOTSTRAP_CLASS_ALERTS_MAP = {
-    alert: 'alert-error',
-    error: 'alert-error',
-    notice: 'alert-info',
+    alert: 'alert-danger',
+    error: 'alert-danger',
+    notice: 'alert-primary',
     success: 'alert-success'
   }.freeze
 
