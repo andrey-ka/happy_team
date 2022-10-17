@@ -30,14 +30,25 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  head_title: 'Happy Team'
   nav_menu:
     home: 'Home'
     admin: 'Admin'
-    projects: 'My projects'
+    projects: 'My tasks'
+    manage_projects: 'Manage projects'
+  shared:
+    links:
+      projects: 'Projects'
   pages:
     global_title: 'Happy Team'
     root:
-      title: Welcome to Team Happy portal!
+      title: 'Welcome to happy team portal!'
       description: Let's get started
       next_button_label: 'Explore your day'
-
+    admin:
+      dashboard:
+        title: 'Welcome to admin portal!'
+        create: 'Create & Assign'
+        create_description: 'Start creating projects with tasks and assigning them to the existing users'
+        latest: 'My latest projects'
+        latest_description: 'Check out own tasks'

@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
+
+  include Pagy::Backend
+
   rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found_error
 
   private

@@ -1,0 +1,27 @@
+= form_with(model: @project, url: url) do |form|
+  - if @project.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
+      ul
+        - @project.errors.each do |error|
+          li = error.full_message
+
+  .form-group.mb-3
+    = form.label :name
+    = form.text_field :name, class: "form-control"
+
+  .form-group.mb-3
+    = form.label :code
+    = form.text_field :code, class: "form-control"
+
+  .form-group.mb-3
+    = form.label :objective_type, class: "form-label"
+    div
+      = form.select :objective_type, enum_options_for_select(Project, :objective_types, @project.objective_type), class: "form-select pt-3"
+
+  .form-group.mb-3
+    = form.label :description
+    = form.text_area :description, class: "form-control"
+
+  .form-group.mb-3
+    = form.submit, class: 'btn btn-primary'

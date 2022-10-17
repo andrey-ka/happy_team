@@ -1,0 +1,14 @@
+= form_with(model: @project, url: url) do |form|
+  - if @project.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
+      ul
+        - @project.errors.each do |error|
+          li = error.full_message
+
+  .form-group.mb-3
+    = form.label :event, value: 'Change state to:',  style: "display: block"
+    = form.select :state, possible_state_options_for_select(@project), include_blank: true
+
+  div
+    = form.submit value: 'Change state', class: 'btn btn-primary'

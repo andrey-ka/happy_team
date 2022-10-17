@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   BOOTSTRAP_CLASS_ALERTS_MAP = {
     alert: 'alert-danger',
     error: 'alert-danger',
@@ -7,6 +9,17 @@ module ApplicationHelper
   }.freeze
 
   def flash_class(level)
-    ['alert', BOOTSTRAP_CLASS_ALERTS_MAP[level.to_sym]].join(' ')
+    BOOTSTRAP_CLASS_ALERTS_MAP[level.to_sym]
+  end
+
+  def enum_options_for_select(klass, field, selected)
+    transformed_options = klass.public_send(field).map do |key, value|
+      [key.titleize, klass.public_send(field).key(value)]
+    end
+    options_for_select(transformed_options, selected)
+  end
+
+  def possible_state_options_for_select(instance)
+    options_for_select(instance.aasm.states(permitted: true))
   end
 end

@@ -1,0 +1,19 @@
+div id="#{dom_id project}"
+  h2= project.name
+  p
+    strong Code:
+    | &nbsp;
+    code= project.code
+  p
+    strong State:
+    | &nbsp;
+    code= project.state.upcase
+  p
+    strong Objective type:
+    | &nbsp;
+    code= project.objective_type
+  p
+    strong Description:
+    | &nbsp;
+    pre
+      = truncated_description(project.description)

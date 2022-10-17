@@ -1,0 +1,20 @@
+.row
+  .col-md-12
+    .row
+      .col-md-9
+         h1.mb-2 Projects
+      .col-md-3
+        = link_to "New project", new_admin_project_path, class: 'btn btn-primary float-end'
+
+    hr.col-md-12.mb-5
+    #projects
+      - if @collection.count.positive?
+        - @collection.each do |project|
+          == render project
+          p
+            = link_to "Show this project", admin_project_path(project)
+          hr.col-md-12.mb-2
+        == pagy_bootstrap_nav(@pagy)
+      - else
+        p.text-center List is empty
+

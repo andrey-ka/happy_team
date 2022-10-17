@@ -9,8 +9,7 @@ module AdminContext
   private
 
   def check_admin_permission!
-    return if current_member && current_member.admin_role?
+    return if current_member&.admin_role?
     redirect_to root_path, alert: t('devise.failure.permission')
   end
-
 end

@@ -1,1 +1,15 @@
-p Admin page
+h1 = t('pages.admin.dashboard.title')
+hr.col-md-12.mb-5
+.row.g-5
+  .col-md-6
+    h2= t('pages.admin.dashboard.create')
+    p=t('pages.admin.dashboard.create_description')
+    ul.icon-list.ps-0
+      li.d-flex.align-items-start.mb-1
+        = link_to t('shared.links.projects'), admin_projects_path
+  .col-md-6
+    h2= t('pages.admin.dashboard.latest')
+    p= t('pages.admin.dashboard.latest_description')
+    / ul.icon-list.ps-0
+    /   li.d-flex.align-items-start.mb-1
+    /     a href="" link 1

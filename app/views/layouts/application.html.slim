@@ -1,17 +1,21 @@
 doctype html
 html
   head
-    title= t('pages.global_title')
+    title= t('head_title')
     meta content="width=device-width,initial-scale=1" name="viewport"
     meta charset="utf-8"
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
-  body
+  body.d-flex.flex-column.min-vh-100
     = render 'layouts/components/navigation'
-    main.container
-      - flash.each do |message_kind, value|
-        div [class=flash_class(message_kind)]
-          = value
-      = yield
+    main.container.flex-shrink-0
+      .col-lg-8.mx-auto.py-md-5
+        - flash.each do |message_kind, value|
+          .alert.alert-dismissible.fade.show [class=flash_class(message_kind) role="alert"]
+            = value
+            button.btn-close aria-label="Close" data-bs-dismiss="alert" type="button"
+        = yield
+    footer.mt-auto.pt-5.my-5.text-muted.text-center
+      | Created by the Happy team team &middot; &copy; #{DateTime.now.year}

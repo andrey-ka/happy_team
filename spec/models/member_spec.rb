@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Member do
+RSpec.describe Member, type: :model do
   describe '#email' do
     context 'when email is already used' do
       let(:email) { 'sample@mail.com' }

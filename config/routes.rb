@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :members, controllers: {
     sessions: 'members/sessions',
-    registrations: 'members/registrations',
+    registrations: 'members/registrations'
   }
 
   namespace :admin do
     get '/', to: 'home#index', as: :home
+    resources :projects
   end
 
   namespace :members, as: :member do

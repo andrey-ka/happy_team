@@ -1,14 +1,15 @@
 header.p-3.text-bg-dark.mb-1
-  .container
-    .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
-      ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
-        - if member_signed_in?
-          = render "layouts/components/#{current_member.role}_menu"
-      .text-end
-        - if member_signed_in?
-          = link_to t('nav_menu.sign_out'),
-                  destroy_member_session_path, data: { "turbo-method": :delete },
-                  class: 'btn btn-outline-primary me-2'
-        - else
-          = link_to t('nav_menu.sign_in'), new_member_session_path, class: 'btn btn-outline-light me-2'
-          = link_to t('nav_menu.sign_up'), new_member_registration_path, class: 'btn btn-warning me-2'
+  .col-lg-8.mx-auto
+    .container
+      .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
+        ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+          - if member_signed_in?
+            = render "layouts/components/#{current_member.role}_menu"
+        .text-end
+          - if member_signed_in?
+            = link_to t('nav_menu.sign_out'),
+                    destroy_member_session_path, data: { "turbo-method": :delete },
+                    class: 'btn btn-outline-primary me-2'
+          - else
+            = link_to t('nav_menu.sign_in'), new_member_session_path, class: 'btn btn-outline-light me-2'
+            = link_to t('nav_menu.sign_up'), new_member_registration_path, class: 'btn btn-warning me-2'
