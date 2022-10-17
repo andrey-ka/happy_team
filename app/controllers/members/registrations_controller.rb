@@ -5,6 +5,7 @@ module Members
     # rubocop:disable  Rails/LexicallyScopedActionFilter
     before_action :configure_sign_up_params, only: [:create]
     # rubocop:enable  Rails/LexicallyScopedActionFilter
+
     protected
 
     # If you have extra params to permit, append them to the sanitizer.

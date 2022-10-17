@@ -3,6 +3,9 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :validatable, :timeoutable
 
+  has_many :tasks, as: :owner, dependent: :destroy
+  has_many :projects, through: :tasks
+
   enum role: { user: 0, admin: 1 }, _suffix: :role
 
   validates :email,

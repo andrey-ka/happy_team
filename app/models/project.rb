@@ -1,35 +1,16 @@
 class Project < ApplicationRecord
-  include AASM
+  include StateWorkflow
+
+  has_many :tasks, dependent: :destroy
+
   enum objective_type: { production: 0, research: 1, education: 2, community: 3 }
 
   validates :name, presence: true
   validates :code, uniqueness: true, presence: true
 
-  aasm column: :state, whiny_persistence: true do
-    state :new, initial: true
-    state :started
-    state :finished
-    state :archived
-    state :on_hold
+  private
 
-    event :start do
-      transitions from: :new, to: :started
-    end
-
-    event :pause do
-      transitions from: :started, to: :on_hold
-    end
-
-    event :resume do
-      transitions from: :on_hold, to: :started
-    end
-
-    event :finish do
-      transitions from: :started, to: :finished
-    end
-
-    event :archive do
-      transitions from: [:finished, :on_hold], to: :archived
-    end
+  def can_be_started?
+    tasks.any?
   end
 end

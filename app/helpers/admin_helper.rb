@@ -1,5 +1,5 @@
 module AdminHelper
-  MAX_TEXT_PREVIEW_SIZE = 50.freeze
+  MAX_TEXT_PREVIEW_SIZE = 50
 
   def truncated_description(description)
     preview = description[0, MAX_TEXT_PREVIEW_SIZE]

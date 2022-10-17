@@ -17,11 +17,13 @@ gem 'bootsnap', require: false
 
 # Additional
 gem 'aasm'
+gem 'auto_increment', github: 'jbox-web/auto_increment', tag: '1.8.0'
 gem 'activerecord-session_store'
 gem 'devise'
 gem 'slim-rails'
 gem 'pagy'
 gem 'validates_email_format_of'
+gem 'uuid'
 
 group :development, :test do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
@@ -44,7 +46,7 @@ group :test do
   gem 'ffaker'
   gem 'rails-controller-testing'
   gem 'mocha'
-  gem 'shoulda', '~> 4.0'
+  gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
   gem 'timecop'
   gem 'rspec-rails'

@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Member, type: :model do
+  describe 'associations' do
+    it { is_expected.to have_many(:tasks) }
+    it { is_expected.to have_many(:projects).through(:tasks) }
+  end
+
   describe '#email' do
     context 'when email is already used' do
       let(:email) { 'sample@mail.com' }
