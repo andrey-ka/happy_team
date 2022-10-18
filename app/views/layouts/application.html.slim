@@ -18,4 +18,5 @@ html
             button.btn-close aria-label="Close" data-bs-dismiss="alert" type="button"
         = yield
     footer.mt-auto.pt-5.my-5.text-muted.text-center
-      | Created by the Happy team team &middot; &copy; #{DateTime.now.year}
+      = t('shared.footer.description')
+      | &nbsp;&copy; #{DateTime.now.year}

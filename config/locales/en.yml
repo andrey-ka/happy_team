@@ -39,6 +39,9 @@ en:
   shared:
     links:
       projects: 'Projects'
+    footer:
+      description:
+        'Created by the Happy team'
   pages:
     global_title: 'Happy Team'
     root:
@@ -52,3 +55,4 @@ en:
         create_description: 'Start creating projects with tasks and assigning them to the existing users'
         latest: 'My latest projects'
         latest_description: 'Check out own tasks'
+        latest_tasks_missing: 'No tasks just yet'

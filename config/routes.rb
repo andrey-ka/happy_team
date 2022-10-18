@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: 'home#index', as: :home
-    resources :projects
+    resources :projects do
+      resources :tasks
+    end
   end
 
   namespace :members, as: :member do

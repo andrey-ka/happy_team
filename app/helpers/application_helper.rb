@@ -22,4 +22,9 @@ module ApplicationHelper
   def possible_state_options_for_select(instance)
     options_for_select(instance.aasm.states(permitted: true))
   end
+
+  # @todo - For future performance improvement
+  def associated_options_for_select(scope, key_field)
+    options_for_select(scope.map { |r| [r.public_send(key_field), r.id]})
+  end
 end

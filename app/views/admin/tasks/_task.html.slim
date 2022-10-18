@@ -1,0 +1,24 @@
+div id="#{dom_id task}"
+  h2= task.title
+
+  p
+    strong Identifier:
+    | &nbsp;
+    code= task.identifier
+  p
+    strong Priority:
+    | &nbsp;
+    code= task.priority
+  p
+    strong State:
+    | &nbsp;
+    code= task.state.upcase
+  p
+    strong Owner:
+    | &nbsp;
+    code= task.owner_full_name
+  p
+    strong Description:
+    | &nbsp;
+    pre
+      = truncated_description(task.description)

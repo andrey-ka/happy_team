@@ -10,6 +10,10 @@ hr.col-md-12.mb-5
   .col-md-6
     h2= t('pages.admin.dashboard.latest')
     p= t('pages.admin.dashboard.latest_description')
-    / ul.icon-list.ps-0
-    /   li.d-flex.align-items-start.mb-1
-    /     a href="" link 1
+    - if @personal_tasks.count.positive?
+      ul.icon-list.ps-0
+        - @personal_tasks.each do |task|
+          li.d-flex.align-items-start.mb-1
+            = link_to "#{task.identifier}: #{task.title}", member_task_path(task)
+    - else
+       p= t('pages.admin.dashboard.latest_tasks_missing')

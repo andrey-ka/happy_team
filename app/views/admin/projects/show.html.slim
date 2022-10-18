@@ -1,18 +1,22 @@
 == render @project
 .pb-2
   => link_to "Edit this project", edit_admin_project_path(@project)
-  '|
+  ' |
+  - unless @project.archived?
+    = link_to "Manage tasks", admin_project_tasks_path(@project)
+    ' |
   =< link_to "Back to projects", admin_projects_path
 
 - unless @project.archived?
   hr.pb-2.col-md-12
     h2 Manage state
-    == render "state_form", project: @project, url: admin_project_path(@project)
+    - if @project.tasks.count.zero?
+      b Notice. Add tasks prior to project kick off
+    - else
+      == render "state_form", project: @project, url: admin_project_path(@project)
 
+  hr.pb-2.col-md-12
 
-
-hr.pb-2.col-md-12
-
-= button_to "Destroy this project",
+  = button_to "Destroy this project",
             admin_project_path(@project), method: :delete, class: 'btn btn-danger',
             data: { turbo_confirm: 'Are you sure?' }

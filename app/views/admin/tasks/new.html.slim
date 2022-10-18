@@ -1,0 +1,10 @@
+.row
+  .col-md-6.offset-3
+    h1 New task
+
+    == render "form", project: @task, url: admin_project_tasks_path(@project)
+
+    br
+
+  .col-md-6.offset-3
+     = link_to "Back to tasks", admin_project_tasks_path(@project)

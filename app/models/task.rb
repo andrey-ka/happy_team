@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   include StateWorkflow
+  FOCUSABLE_TASKS_COUNT = 5.freeze
 
   belongs_to :project
   belongs_to :owner, class_name: 'Member', optional: true
@@ -9,6 +10,10 @@ class Task < ApplicationRecord
 
   validates :title, presence: true
   delegate :code, to: :project, prefix: true
+  delegate :full_name, to: :owner, prefix: true, allow_nil: true
+
+  scope :priority, -> { order(priority: :desc) }
+  scope :focusable, -> { priority.limit(FOCUSABLE_TASKS_COUNT) }
 
   def identifier
     [project_code, scoped_number].join('-')
