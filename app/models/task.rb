@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   include StateWorkflow
-  FOCUSABLE_TASKS_COUNT = 5.freeze
+  FOCUSABLE_TASKS_COUNT = 5
 
   belongs_to :project
   belongs_to :owner, class_name: 'Member', optional: true

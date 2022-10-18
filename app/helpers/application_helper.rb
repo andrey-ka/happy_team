@@ -25,6 +25,6 @@ module ApplicationHelper
 
   # @todo - For future performance improvement
   def associated_options_for_select(scope, key_field)
-    options_for_select(scope.map { |r| [r.public_send(key_field), r.id]})
+    options_for_select(scope.map { |r| [r.public_send(key_field), r.id] })
   end
 end

@@ -20,10 +20,10 @@ module Members
     private
 
     def tasks_scope
-      current_member.
-        tasks.
-        includes(:project).
-        priority
+      current_member
+        .tasks
+        .includes(:project)
+        .priority
     end
 
     def set_task
