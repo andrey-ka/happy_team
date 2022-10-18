@@ -9,7 +9,6 @@ Simple 'Happy Team' project management tool (yet another :smile:)
 - PG (13+ version) is up and running (see .env.example config for `PORT`)
 - PG user with `SUPERUSER` role is created (see .env.example config for `DATABASE_USER`)
 
-
 ### Prerequisites
 - Ruby version - `3.1.2`
 - Nodejs version - `14.17.6`
@@ -26,3 +25,13 @@ Simple 'Happy Team' project management tool (yet another :smile:)
 
 ### Deployment
 TBC
+
+## Current list TODO
+
+## Functionality
+- [ ] Member: ability to start/finish task
+
+## Performance
+- [ ] Admin: Rewrite members dropdown to use free text search
+- [ ] DB: add index for the full text search on member name
+
