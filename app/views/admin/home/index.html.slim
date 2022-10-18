@@ -14,6 +14,6 @@ hr.col-md-12.mb-5
       ul.icon-list.ps-0
         - @personal_tasks.each do |task|
           li.d-flex.align-items-start.mb-1
-            = link_to "#{task.identifier}: #{task.title}", member_task_path(task)
+            = member_task_title(task)
     - else
        p= t('pages.admin.dashboard.latest_tasks_missing')

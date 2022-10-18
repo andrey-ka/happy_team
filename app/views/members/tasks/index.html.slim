@@ -1,1 +1,34 @@
-| current tasks
+.row
+  .col-md-12
+    .row
+      .col-md-8
+         h1.mb-2 My personal tasks
+    hr.col-md-12.mb-5
+    #tasks
+      - if @collection.count.positive?
+        - @collection.each do |task|
+          h3
+            = member_task_title(task)
+          p
+            strong Project:
+            | &nbsp;
+            code= task.project_name
+          p
+            strong Priority:
+            | &nbsp;
+            code= task.priority
+          p
+            strong State:
+            | &nbsp;
+            code= task.state.upcase
+          p
+            strong Description:
+            | &nbsp;
+            pre
+              = truncated_description(task.description)
+
+          hr.col-md-12.mb-2
+        == pagy_bootstrap_nav(@pagy)
+      - else
+        p.text-center List is empty
+

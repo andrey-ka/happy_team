@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   namespace :members, as: :member do
-    resources :tasks, only: %i[index show update]
+    resources :tasks, only: %i[index update]
   end
 
   match '/404', to: 'errors#not_found', via: :all

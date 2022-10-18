@@ -9,7 +9,7 @@ class Task < ApplicationRecord
   auto_increment :scoped_number, scope: :project_id, force: true, lock: false, before: :create
 
   validates :title, presence: true
-  delegate :code, to: :project, prefix: true
+  delegate :code, :name, to: :project, prefix: true
   delegate :full_name, to: :owner, prefix: true, allow_nil: true
 
   scope :priority, -> { order(priority: :desc) }
