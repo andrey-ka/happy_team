@@ -21,6 +21,15 @@
             strong State:
             | &nbsp;
             code= task.state.upcase
+          - unless task.archived?
+            p
+              strong Move state to:
+              | &nbsp;
+              code= select_tag 'task[state]', possible_state_options_for_select(task), include_blank: true,
+                                data: { controller: 'member',
+                                  action: "change->member#handleChange",
+                                  'member-url-value': member_task_path(task, format: :json),
+                                  'member-target': :state }
           p
             strong Description:
             | &nbsp;

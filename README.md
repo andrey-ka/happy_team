@@ -35,3 +35,7 @@ TBC
 - [ ] Admin: Rewrite members dropdown to use free text search
 - [ ] DB: add index for the full text search on member name
 
+## Debt
+- [ ] Internationalisation
+- [ ] Controller / helper tests
+

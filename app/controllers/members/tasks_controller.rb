@@ -10,9 +10,11 @@ module Members
     def update
       respond_to do |format|
         if @task.update(task_params)
-          format.html { redirect_to member_tasks_path(@project), notice: 'Task was successfully saved.' }
+          format.html { redirect_to member_tasks_path(@project), notice: t('pages.member.tasks.success_notice') }
+          format.json { render json: { message: t('pages.member.tasks.success_notice') } }
         else
           format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: { message: t('pages.member.tasks.failure_notice') }, status: :unprocessable_entity }
         end
       end
     end

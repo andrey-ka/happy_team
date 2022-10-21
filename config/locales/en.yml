@@ -56,3 +56,8 @@ en:
         latest: 'My latest projects'
         latest_description: 'Check out own tasks'
         latest_tasks_missing: 'No tasks just yet'
+    member:
+      tasks:
+        success_notice: 'Task was successfully saved'
+        failure_notice: 'Something went wrong'
+
